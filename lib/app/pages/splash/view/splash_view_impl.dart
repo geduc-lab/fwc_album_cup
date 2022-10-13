@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fwc_album_cup/app/core/ui/helpers/loader.dart';
 import 'package:fwc_album_cup/app/pages/splash/splash_page.dart';
+import '../../../core/ui/helpers/loader.dart';
+import '../splash_page.dart';
 import './splash_view.dart';
 
 abstract class SplashViewImpl extends State<SplashPage> with Loader<SplashPage> implements SplashView {

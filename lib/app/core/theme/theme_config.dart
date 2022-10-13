@@ -9,7 +9,7 @@ class ThemeConfig {
 
   static final _defaultInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(18),
-    borderSide: BorderSide(color: ColorsApp.i.greyDart, width: 1),
+    borderSide: BorderSide(color: ColorsApp.instance.greyDark, width: 1),
   );
 
   static final theme = ThemeData(
@@ -20,16 +20,16 @@ class ThemeConfig {
       iconTheme: const IconThemeData(
         color: Colors.black,
       ),
-      titleTextStyle: TextStyles.i.textPrimaryFontBold.copyWith(
+      titleTextStyle: TextStyles.instance.textPrimaryFontBold.copyWith(
         color: Colors.black,
         fontSize: 18,
       ),
     ),
-    primaryColor: ColorsApp.i.primary,
+    primaryColor: ColorsApp.instance.primary,
     colorScheme: ColorScheme.fromSeed(
-      seedColor: ColorsApp.i.primary,
-      primary: ColorsApp.i.primary,
-      secondary: ColorsApp.i.secondary,
+      seedColor: ColorsApp.instance.primary,
+      primary: ColorsApp.instance.primary,
+      secondary: ColorsApp.instance.secundary,
     ),
     inputDecorationTheme: InputDecorationTheme(
         fillColor: Colors.white,
@@ -39,6 +39,6 @@ class ThemeConfig {
         border: _defaultInputBorder,
         enabledBorder: _defaultInputBorder,
         focusedBorder: _defaultInputBorder,
-        labelStyle: TextStyles.i.labelTextField),
+        labelStyle: TextStyles.instance.labelTextField),
   );
 }
