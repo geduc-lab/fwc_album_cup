@@ -8,7 +8,7 @@ class CustomDio extends DioForNative {
   final _authInterceptor = AuthInterceptor();
 
   CustomDio(): super(BaseOptions(
-    baseUrl: Env.instance['backend_base_url'] ?? '',
+    baseUrl: Env.instance['base_url'] ?? '',
     connectTimeout: 5000,
     receiveTimeout: 60000,
   )){
