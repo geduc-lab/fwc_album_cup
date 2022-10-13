@@ -1,36 +1,36 @@
-
+import 'package:fwc_album_cup/app/core/ui/styles/button_styles.dart';
+import 'package:fwc_album_cup/app/core/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-
-import '../styles/button_styles.dart';
-import '../styles/text_styles.dart';
 
 class Button extends StatelessWidget {
   final ButtonStyle style;
   final TextStyle labelStyle;
   final String label;
-  final double? width;
+  final double? widht;
   final double? height;
   final VoidCallback? onPressed;
   final bool outline;
 
-  const Button(
-      {super.key,
-      required this.style,
-      required this.labelStyle,
-      required this.label,
-      this.width,
-      this.height,
-      this.onPressed,
-      this.outline = false});
-
-  Button.primary({
-    super.key,
+  const Button({
+    Key? key,
+    required this.style,
+    required this.labelStyle,
     required this.label,
-    this.width,
+    this.widht,
     this.height,
     this.onPressed,
-  })  : style = ButtonStyles.i.primaryButton,
-        labelStyle = TextStyles.i.textSecondaryFontExtraBold,
+    this.outline = false
+  }) : super(key: key);
+
+  Button.primary({
+    Key? key,
+    required this.label,
+    this.widht,
+    this.height,
+    this.onPressed,
+  })
+      : style = ButtonStyles.instance.primaryButton,
+        labelStyle = TextStyles.instance.textPrimaryFontExtraBold,
         outline = false;
 
   @override
@@ -42,7 +42,7 @@ class Button extends StatelessWidget {
     );
 
     return SizedBox(
-      width: width,
+      width: widht,
       height: height,
       child: outline
           ? OutlinedButton(

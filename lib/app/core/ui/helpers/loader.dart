@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 mixin Loader<T extends StatefulWidget> on State<T> {
@@ -9,17 +10,18 @@ mixin Loader<T extends StatefulWidget> on State<T> {
       isOpen = true;
       showDialog(
         context: context,
-        barrierDismissible: false,
         builder: (_) {
           return LoadingAnimationWidget.threeArchedCircle(
-              color: Colors.white, size: 60);
+            color: Colors.white,
+            size: 60,
+          );
         },
       );
     }
   }
 
   void hideLoader() {
-    if (isOpen) {
+    if(isOpen) {
       isOpen = false;
       Navigator.of(context).pop();
     }

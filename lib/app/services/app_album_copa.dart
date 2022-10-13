@@ -10,8 +10,8 @@ import 'package:fwc_album_cup/app/repository/auth/auth_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
-class FwcAlbumApp extends StatelessWidget {
-  const FwcAlbumApp({Key? key}) : super(key: key);
+class AppAlbumCopa extends StatelessWidget {
+  const AppAlbumCopa({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +21,15 @@ class FwcAlbumApp extends StatelessWidget {
         Bind.lazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i())) // o que é isso???
       ],
       child: MaterialApp(
-          title: 'Fifa World Cup Album',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeConfig.theme,
-          routes: {
-            '/': (_) => const SplashRoute(),
-            '/auth/login': (_) => const LoginRoute(),
-            '/auth/register': (_) => const RegisterRoute(),
-            '/home': (_) => const HomePage(),
-          }
+        title: 'Fifa World Cup Album',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeConfig.theme,
+        routes: {
+          '/': (_) => const SplashRoute(),
+          '/auth/login': (_) => const LoginRoute(),
+          '/auth/register': (_) => const RegisterRoute(),
+          '/home': (_) => const HomePage(),
+        }
       ),
     );
   }

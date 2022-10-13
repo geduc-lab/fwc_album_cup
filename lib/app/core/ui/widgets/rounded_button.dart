@@ -1,14 +1,15 @@
+import 'package:fwc_album_cup/app/core/ui/styles/colors_app.dart';
 import 'package:flutter/material.dart';
 
-class RoundedButtton extends StatelessWidget {
+class RoundedButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
 
-  const RoundedButtton({
-    super.key,
+  const RoundedButton({
+    Key? key,
     required this.icon,
     required this.onPressed,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,10 @@ class RoundedButtton extends StatelessWidget {
         ),
         child: IconButton(
           onPressed: onPressed,
-          icon: Icon(icon),
+          icon: Icon(
+            icon,
+            color: context.colors.greyDark,
+          ),
         ),
       ),
     );
