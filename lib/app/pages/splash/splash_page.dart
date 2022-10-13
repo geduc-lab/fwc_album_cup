@@ -1,20 +1,15 @@
-import 'package:fwc_album_cup/app/core/ui/helpers/loader.dart';
-import 'package:fwc_album_cup/app/core/ui/helpers/messages.dart';
+import 'package:flutter/material.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_cup/app/core/ui/widgets/button.dart';
-import 'package:fwc_album_cup/app/core/ui/widgets/rounded_button.dart';
 import 'package:fwc_album_cup/app/pages/splash/presenter/splash_presenter.dart';
-import 'package:fwc_album_cup/app/pages/splash/view/splash_view.dart';
 import 'package:fwc_album_cup/app/pages/splash/view/splash_view_impl.dart';
-import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
-
   final SplashPresenter presenter;
 
-  const SplashPage({Key? key, required this.presenter}) : super(key: key);
+  const SplashPage({super.key, required this.presenter});
 
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -48,14 +43,16 @@ class _SplashPageState extends SplashViewImpl {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * .19),
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height * 0.19),
                 child: Button(
-                  widht: MediaQuery.of(context).size.width * .9,
-                  onPressed: (){
+                  width: MediaQuery.of(context).size.width * .9,
+                  onPressed: () {
                     widget.presenter.checkLogin();
                   },
                   style: context.buttonStyles.yellowButton,
-                  labelStyle: context.textStyles.textSecundaryFontExtraBoldPrimaryColor,
+                  labelStyle:
+                  context.textStyles.textSecondaryFontExtraBoldPrimaryColor,
                   label: 'Acessar',
                 ),
               ),
@@ -63,7 +60,9 @@ class _SplashPageState extends SplashViewImpl {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const  EdgeInsets.only(bottom: 20),
+                padding: const EdgeInsets.only(
+                  bottom: 20,
+                ),
                 child: Image.asset('assets/images/bandeiras.png'),
               ),
             ),

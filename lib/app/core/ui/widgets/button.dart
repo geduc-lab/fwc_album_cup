@@ -1,36 +1,34 @@
+import 'package:flutter/material.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/text_styles.dart';
-import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final ButtonStyle style;
   final TextStyle labelStyle;
   final String label;
-  final double? widht;
+  final double? width;
   final double? height;
   final VoidCallback? onPressed;
   final bool outline;
 
-  const Button({
-    Key? key,
-    required this.style,
-    required this.labelStyle,
-    required this.label,
-    this.widht,
-    this.height,
-    this.onPressed,
-    this.outline = false
-  }) : super(key: key);
+  const Button(
+      {super.key,
+        required this.style,
+        required this.labelStyle,
+        required this.label,
+        this.width,
+        this.height,
+        this.onPressed,
+        this.outline = false});
 
   Button.primary({
-    Key? key,
+    super.key,
     required this.label,
-    this.widht,
+    this.width,
     this.height,
     this.onPressed,
-  })
-      : style = ButtonStyles.instance.primaryButton,
-        labelStyle = TextStyles.instance.textPrimaryFontExtraBold,
+  })  : style = ButtonStyles.i.primaryButton,
+        labelStyle = TextStyles.i.textSecondaryFontExtraBold,
         outline = false;
 
   @override
@@ -42,19 +40,19 @@ class Button extends StatelessWidget {
     );
 
     return SizedBox(
-      width: widht,
+      width: width,
       height: height,
       child: outline
           ? OutlinedButton(
-              onPressed: onPressed,
-              style: style,
-              child: labelText,
-            )
+        onPressed: onPressed,
+        style: style,
+        child: labelText,
+      )
           : ElevatedButton(
-              onPressed: onPressed,
-              style: style,
-              child: labelText,
-            ),
+        onPressed: onPressed,
+        style: style,
+        child: labelText,
+      ),
     );
   }
 }

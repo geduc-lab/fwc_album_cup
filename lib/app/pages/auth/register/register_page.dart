@@ -1,13 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_cup/app/core/ui/widgets/button.dart';
 import 'package:fwc_album_cup/app/pages/auth/register/presenter/register_presenter.dart';
 import 'package:fwc_album_cup/app/pages/auth/register/view/register_view_impl.dart';
-import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 
 class RegisterPage extends StatefulWidget {
   final RegisterPresenter presenter;
-
   const RegisterPage({super.key, required this.presenter});
 
   @override
@@ -46,10 +45,11 @@ class _RegisterPageState extends RegisterViewImpl {
               Container(
                 height: 106.82,
                 decoration: const BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/images/bola.png'),
-                  fit: BoxFit.fill,
-                )),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/bola.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 50,
@@ -59,7 +59,7 @@ class _RegisterPageState extends RegisterViewImpl {
                 style: context.textStyles.titleBlack,
               ),
               const SizedBox(
-                height: 30,
+                height: 24,
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -67,77 +67,76 @@ class _RegisterPageState extends RegisterViewImpl {
                   children: [
                     TextFormField(
                       controller: nameEC,
+                      validator: Validatorless.required('Campo obrigatório!'),
                       decoration: const InputDecoration(
                         label: Text('Nome Completo *'),
                       ),
-                      validator: Validatorless.required('Obrigatório'),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 24,
                     ),
                     TextFormField(
                       controller: emailEC,
+                      validator: Validatorless.multiple([
+                        Validatorless.required('Campo obrigatório!'),
+                        Validatorless.email('E-mail inválido!'),
+                      ]),
                       decoration: const InputDecoration(
                         label: Text('E-mail *'),
                       ),
-                      validator: Validatorless.multiple([
-                        Validatorless.required('Obrigatório'),
-                        Validatorless.email('E-mail invalido'),
-                      ]),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 24,
                     ),
                     TextFormField(
                       controller: passwordEC,
                       obscureText: true,
+                      validator: Validatorless.multiple([
+                        Validatorless.required('Campo obrigatório!'),
+                        Validatorless.min(
+                            6, 'A senha deve conter pelo menos 6 caracteres!')
+                      ]),
                       decoration: const InputDecoration(
                         label: Text('Senha *'),
                       ),
-                      validator: Validatorless.multiple([
-                        Validatorless.required('Obrigatório'),
-                        Validatorless.min(
-                            6, 'Senha deve conter pelo menos 6 caracteres'),
-                      ]),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 24,
                     ),
                     TextFormField(
                       controller: confirmPasswordEC,
                       obscureText: true,
-                      decoration: const InputDecoration(
-                        label: Text('Confirmar senha *'),
-                      ),
                       validator: Validatorless.multiple([
-                        Validatorless.required('Obrigatório'),
+                        Validatorless.required('Campo obrigatório!'),
                         Validatorless.min(
-                            6, 'Senha deve conter pelo menos 6 caracteres'),
-                        Validatorless.compare(
-                            passwordEC, 'Senha diferente de confirmação'),
+                            6, 'A senha deve conter pelo menos 6 caracteres!'),
+                        Validatorless.compare(passwordEC,
+                            'Senha é diferente da digitada no campo anterior.')
                       ]),
+                      decoration: const InputDecoration(
+                        label: Text('Confirmar Senha *'),
+                      ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 24,
                     ),
                     Button.primary(
-                      onPressed: () {
-                        final formValid =
-                            formKey.currentState?.validate() ?? false;
+                        width: MediaQuery.of(context).size.width * 1,
+                        onPressed: () {
+                          final formValid =
+                              formKey.currentState?.validate() ?? false;
 
-                        if (formValid) {
-                          showLoader();
-                          widget.presenter.register(
-                            name: nameEC.text,
-                            email: emailEC.text,
-                            password: passwordEC.text,
-                            confirmPassword: confirmPasswordEC.text,
-                          );
-                        }
-                      },
-                      widht: MediaQuery.of(context).size.width * .9,
-                      label: 'Cadastrar',
-                    ),
+                          if (formValid) {
+                            showLoader();
+                            widget.presenter.register(
+                              name: nameEC.text,
+                              email: emailEC.text,
+                              password: passwordEC.text,
+                              confirmPassword: confirmPasswordEC.text,
+                            );
+                          }
+                        },
+                        label: 'Cadastrar')
                   ],
                 ),
               )
