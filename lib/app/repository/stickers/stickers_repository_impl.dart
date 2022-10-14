@@ -34,9 +34,9 @@ class StickersRepositoryImpl implements StickersRepository {
       String stickerCode, String stickerNumber) async {
     try {
       final result =
-          await dio.auth().get('/api/stickers-search', queryParameters: {
-        'sticker-code': stickerCode,
-        'sticker-number': stickerNumber,
+          await dio.auth().get('/api/sticker-search', queryParameters: {
+        'sticker_code': stickerCode,
+        'sticker_number': stickerNumber,
       });
 
       return StickerModel.fromMap(result.data);

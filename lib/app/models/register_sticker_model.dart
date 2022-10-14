@@ -14,8 +14,8 @@ class RegisterStickerModel {
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'sticker-number': stickerNumber,
-      'sticker-code': stickerCode,
+      'sticker_number': stickerNumber,
+      'sticker_code': stickerCode,
     };
   }
 
@@ -24,8 +24,8 @@ class RegisterStickerModel {
   factory RegisterStickerModel.fromMap(Map<String, dynamic> map) {
     return RegisterStickerModel(
       name: map['name'],
-      stickerNumber: map['sticker-number'],
-      stickerCode: map['sticker-code'],
+      stickerNumber: map['sticker_number'],
+      stickerCode: map['sticker_code'],
     );
   }
 }

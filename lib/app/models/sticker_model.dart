@@ -3,9 +3,9 @@ import 'dart:convert';
 class StickerModel {
   final int id;
   final String stickerNumber;
-  final String stickerName;
+  final Null stickerName;
   final String stickerCode;
-  final String stickerImage;
+  final Null stickerImage;
 
   StickerModel({
     required this.id,
@@ -20,10 +20,10 @@ class StickerModel {
   factory StickerModel.fromMap(Map<String, dynamic> map) {
     return StickerModel(
       id: map['id'],
-      stickerNumber: map['sticker-number'],
-      stickerName: map['sticker-name'],
-      stickerCode: map['sticker-code'],
-      stickerImage: map['sticker-image'],
+      stickerNumber: map['sticker_number'],
+      stickerName: map['sticker_name'],
+      stickerCode: map['sticker_code'],
+      stickerImage: map['sticker_image'],
     );
   }
 
@@ -31,10 +31,10 @@ class StickerModel {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'sticker-number': stickerNumber,
-      'sticker-name': stickerName,
-      'sticker-code': stickerCode,
-      'sticker-image': stickerImage,
+      'sticker_number': stickerNumber,
+      'sticker_name': stickerName,
+      'sticker_code': stickerCode,
+      'sticker_image': stickerImage,
     };
   }
 

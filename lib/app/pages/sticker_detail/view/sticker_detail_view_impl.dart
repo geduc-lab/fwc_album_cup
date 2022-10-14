@@ -20,7 +20,7 @@ abstract class StickerDetailViewImpl extends State<StickerDetailPage>
     widget.presenter.view = this;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       showLoader ();
-      var arguments = ModalRoute.of(context)!.settings.arguments;
+      var arguments = ModalRoute.of(context)?.settings.arguments;
 
       if (arguments != null && arguments is Map<String, dynamic>) {
         var args = arguments as Map<String, dynamic>;
@@ -46,11 +46,11 @@ abstract class StickerDetailViewImpl extends State<StickerDetailPage>
 
   @override
   void screenLoaded({
-    required bool hasSticker,
-    required String countryCode,
-    required String countryName,
-    required String stickerNumber,
-    required int amount,
+     required bool hasSticker,
+     required String countryCode,
+     required String countryName,
+     required String stickerNumber,
+     required int amount,
   }) {
     hideLoader();
     setState(() {

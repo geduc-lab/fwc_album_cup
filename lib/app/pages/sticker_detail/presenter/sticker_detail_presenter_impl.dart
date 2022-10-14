@@ -21,9 +21,9 @@ class StickerDetailPresenterImpl implements StickerDetailPresenter {
 
   @override
   Future<void> load(
-      {required String countryCode,
-      required String countryName,
-      required String stickerNumber,
+      { required String countryCode,
+       required String countryName,
+       required String stickerNumber,
       UserStickerModel? stickerUser}) async {
 
 
@@ -39,14 +39,16 @@ class StickerDetailPresenterImpl implements StickerDetailPresenter {
 
 
     if (hasSticker) {
-      amount = stickerUser!.duplicate + 1;
+      amount = stickerUser?.duplicate ?? 0;
     }
 
     _view.screenLoaded(
-        hasSticker: hasSticker,
+        hasSticker : hasSticker,
         countryCode: countryCode,
         countryName: countryName,
         stickerNumber: stickerNumber,
         amount: amount);
-  }
+
+
+}
 }
