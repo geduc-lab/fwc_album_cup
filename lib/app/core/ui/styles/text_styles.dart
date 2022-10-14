@@ -5,8 +5,8 @@ import 'colors_app.dart';
 
 class TextStyles {
   static TextStyles? _instance;
-
   // Avoid self isntance
+
   TextStyles._();
 
   static TextStyles get i {
@@ -17,58 +17,44 @@ class TextStyles {
   String get primaryFont => 'Poppins';
   String get secondaryFont => 'MPlus1P';
 
-  // Primary Font
+  //primary font
   TextStyle get textPrimaryFontRegular =>
       TextStyle(fontWeight: FontWeight.normal, fontFamily: primaryFont);
-
   TextStyle get textPrimaryFontMedium =>
       TextStyle(fontWeight: FontWeight.w500, fontFamily: primaryFont);
-
-  TextStyle get textPrimaryFontSemibold =>
+  TextStyle get textPrimaryFontSemiBold =>
       TextStyle(fontWeight: FontWeight.w600, fontFamily: primaryFont);
-
   TextStyle get textPrimaryFontBold =>
       TextStyle(fontWeight: FontWeight.bold, fontFamily: primaryFont);
-
-  TextStyle get textPrimaryFontExtraBold =>
+  TextStyle get textPrimaryExtraBold =>
       TextStyle(fontWeight: FontWeight.w800, fontFamily: primaryFont);
 
-// Secondary Font
+  //secondary font
   TextStyle get textSecondaryFontRegular =>
       TextStyle(fontWeight: FontWeight.normal, fontFamily: secondaryFont);
-
   TextStyle get textSecondaryFontMedium =>
       TextStyle(fontWeight: FontWeight.w600, fontFamily: secondaryFont);
-
   TextStyle get textSecondaryFontBold =>
       TextStyle(fontWeight: FontWeight.bold, fontFamily: secondaryFont);
-
-  TextStyle get textSecondaryFontExtraBold =>
+  TextStyle get textSecondaryExtraBold =>
       TextStyle(fontWeight: FontWeight.w800, fontFamily: secondaryFont);
 
-  TextStyle get labelTextField => textSecondaryFontRegular.copyWith(
-        color: ColorsApp.instance.greyDark,
-      );
+  TextStyle get labelTextField =>
+      textSecondaryFontRegular.copyWith(color: ColorsApp.instance.greyDark);
 
-  TextStyle get textSecondaryFontExtraBoldPrimaryColor =>
-      textSecondaryFontExtraBold.copyWith(color: ColorsApp.instance.primary);
+  TextStyle get textSecondaryExtraBoldPrimaryColor =>
+      textSecondaryExtraBold.copyWith(color: ColorsApp.instance.primary);
 
-  TextStyle get titleWhite => textPrimaryFontBold.copyWith(
-        color: Colors.white,
-        fontSize: 22,
-      );
+  TextStyle get titleWhite =>
+      textPrimaryFontBold.copyWith(color: Colors.white, fontSize: 22);
 
-  TextStyle get titleBlack => textPrimaryFontBold.copyWith(
-        color: Colors.black,
-        fontSize: 22,
-      );
+  TextStyle get titleBlack =>
+      textPrimaryFontBold.copyWith(color: Colors.black, fontSize: 22);
 
-  TextStyle get titlePrimaryColor => textPrimaryFontBold.copyWith(
-        color: ColorsApp.instance.primary,
-        fontSize: 22,
-      );
+  TextStyle get titlePrimaryColor =>
+      textPrimaryFontBold.copyWith(color: ColorsApp.instance.primary, fontSize: 22);
 }
 
-extension TextStylesExtensions on BuildContext {
+extension TextStyleExtensions on BuildContext {
   TextStyles get textStyles => TextStyles.i;
 }

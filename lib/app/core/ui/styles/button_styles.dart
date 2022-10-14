@@ -22,7 +22,7 @@ class ButtonStyles {
         borderRadius: BorderRadius.circular(15),
       ),
       textStyle:
-      TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14));
+      TextStyles.i.textSecondaryExtraBold.copyWith(fontSize: 14));
 
   ButtonStyle get yellowOutlineButton => OutlinedButton.styleFrom(
       shape: RoundedRectangleBorder(
@@ -30,7 +30,7 @@ class ButtonStyles {
       ),
       side: BorderSide(color: ColorsApp.instance.yellow),
       textStyle:
-      TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14));
+      TextStyles.i.textSecondaryExtraBold.copyWith(fontSize: 14));
 
   ButtonStyle get primaryButton => ElevatedButton.styleFrom(
       backgroundColor: ColorsApp.instance.primary,
@@ -38,7 +38,7 @@ class ButtonStyles {
         borderRadius: BorderRadius.circular(15),
       ),
       textStyle:
-      TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14));
+      TextStyles.i.textSecondaryExtraBold.copyWith(fontSize: 14));
 
   ButtonStyle get primaryOutlineButton => OutlinedButton.styleFrom(
       shape: RoundedRectangleBorder(
@@ -46,7 +46,7 @@ class ButtonStyles {
       ),
       side: BorderSide(color: ColorsApp.instance.primary),
       textStyle:
-      TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14));
+      TextStyles.i.textSecondaryExtraBold.copyWith(fontSize: 14));
 }
 
 extension ButtonStylesExtensiosions on BuildContext {

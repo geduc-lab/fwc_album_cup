@@ -102,7 +102,7 @@ class _HomePageState extends HomeViewImpl {
                         width: MediaQuery.of(context).size.width * .9,
                         style: context.buttonStyles.yellowOutlineButton,
                         labelStyle: context
-                            .textStyles.textSecondaryFontExtraBold
+                            .textStyles.textSecondaryExtraBold
                             .copyWith(
                           color: context.colors.yellow,
                         ),

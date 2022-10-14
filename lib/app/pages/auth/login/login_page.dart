@@ -114,7 +114,7 @@ class _LoginPageState extends LoginViewImpl {
                     },
                     style: context.buttonStyles.yellowButton,
                     labelStyle: context
-                        .textStyles.textSecondaryFontExtraBoldPrimaryColor,
+                        .textStyles.textSecondaryExtraBoldPrimaryColor,
                     label: 'Entrar',
                   )
                 ]),
