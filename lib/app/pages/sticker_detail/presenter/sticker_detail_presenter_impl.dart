@@ -10,6 +10,7 @@ class StickerDetailPresenterImpl implements StickerDetailPresenter {
   final FindStickerService findStickerService;
   UserStickerModel? stickerUser;
   StickerModel? sticker;
+  int amount = 0;
 
   StickerDetailPresenterImpl({
     required this.findStickerService,
@@ -33,5 +34,19 @@ class StickerDetailPresenterImpl implements StickerDetailPresenter {
         sticker =  await findStickerService.execute(countryCode, stickerNumber);
 
       }
+
+    bool hasSticker = sticker != null;
+
+
+    if (hasSticker) {
+      amount = stickerUser!.duplicate + 1;
+    }
+
+    _view.screenLoaded(
+        hasSticker: hasSticker,
+        countryCode: countryCode,
+        countryName: countryName,
+        stickerNumber: stickerNumber,
+        amount: amount);
   }
 }

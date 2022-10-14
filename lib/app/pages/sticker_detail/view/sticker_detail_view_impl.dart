@@ -18,6 +18,47 @@ abstract class StickerDetailViewImpl extends State<StickerDetailPage>
   @override
   void initState() {
     widget.presenter.view = this;
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      showLoader ();
+      var arguments = ModalRoute.of(context)!.settings.arguments;
+
+      if (arguments != null && arguments is Map<String, dynamic>) {
+        var args = arguments as Map<String, dynamic>;
+        widget.presenter.load(
+
+          countryCode: arguments['countryCode'],
+          countryName: arguments['countryName'],
+          stickerNumber: arguments['stickerNumber'],
+          stickerUser: arguments['stickerUser'],
+
+        );
+      }
+      else {
+        hideLoader();
+        Navigator.of(context).pop();
+        showError('Não foi possível carregar a figurinha');
+      }
+
+
+    });
     super.initState();
+  }
+
+  @override
+  void screenLoaded({
+    required bool hasSticker,
+    required String countryCode,
+    required String countryName,
+    required String stickerNumber,
+    required int amount,
+  }) {
+    hideLoader();
+    setState(() {
+      this.hasSticker = hasSticker;
+      this.countryCode = countryCode;
+      this.countryName = countryName;
+      this.stickerNumber = stickerNumber;
+      this.amount = amount;
+    });
   }
 }
