@@ -74,4 +74,15 @@ class StickerDetailPresenterImpl implements StickerDetailPresenter {
 
     }
   }
+
+  @override
+  Future<void> deleteSticker() async {
+    _view.showLoader();
+    if (stickerUser != null) {
+      await stickersRepository.updateUserSticker(stickerUser!.idSticker, 0);
+    }
+
+    _view.saveSuccess();
+
+  }
 }

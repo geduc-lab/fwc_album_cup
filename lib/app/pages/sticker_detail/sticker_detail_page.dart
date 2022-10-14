@@ -75,9 +75,9 @@ class _StickerDetailPageState extends StickerDetailViewImpl {
                 label:  hasSticker ? 'Atualizar figurinha' : 'Adicionar figurinha',
               ),
               Button(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed:
+                  widget.presenter.deleteSticker,
+
                 label: 'Excluir figurinha',
                 outline: true,
                 style:context.buttonStyles.primaryOutlineButton,
