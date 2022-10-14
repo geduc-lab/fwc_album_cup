@@ -20,28 +20,27 @@ class FwcAlbumApp extends StatelessWidget {
   final navigatorKey = GlobalKey<NavigatorState>();
 
   FwcAlbumApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FlutterGetItApplicationBinding(
       bindingsBuilder: () => [
         Bind.lazySingleton<CustomDio>((i) => CustomDio()),
         Bind.lazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i())),
-        Bind.lazySingleton<GlobalContext>((i) => GlobalContextImpl(
-          navigatorKey: navigatorKey,
-          authRepository: i(),
-        )),
+        Bind.lazySingleton<GlobalContext>((i) =>
+            GlobalContextImpl(navigatorKey: navigatorKey, authRepository: i())),
       ],
       child: MaterialApp(
+        key: navigatorKey,
         title: 'Fifa World Cup Album',
         debugShowCheckedModeBanner: false,
-        navigatorKey: navigatorKey,
         theme: ThemeConfig.theme,
         routes: {
           '/': (_) => const SplashRoute(),
           '/auth/login': (_) => const LoginRoute(),
           '/auth/register': (_) => const RegisterRoute(),
           '/home': (_) => const HomeRoute(),
-          '/my_stickers': (_) =>  MyStickerRoute(),
+          '/my-stickers': (_) => const MyStickerRoute(),
         },
       ),
     );

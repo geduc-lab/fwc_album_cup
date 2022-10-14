@@ -12,6 +12,8 @@ class MyStickersPresenterImpl implements MyStickersPresenter {
   var statusSelected = 'all';
   List<String>? countries;
 
+
+
   MyStickersPresenterImpl({
     required this.stickersRepository,
   });
@@ -35,12 +37,12 @@ class MyStickersPresenterImpl implements MyStickersPresenter {
   void countryFilter(List<String>? countries) {
     this.countries = countries;
     if (countries == null) {
-      _view.updatedAlbum(album);
+      _view.updateAlbum(album);
     } else {
       final albumFilter = [
         ...album.where((element) => countries.contains(element.countryCode))
       ];
-      _view.updatedAlbum(albumFilter);
+      _view.updateAlbum(albumFilter);
     }
   }
 }

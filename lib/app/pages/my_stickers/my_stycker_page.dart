@@ -14,6 +14,8 @@ class MyStickersPage extends StatefulWidget {
     required this.presenter,
   }) : super(key: key);
 
+
+
   @override
   State<MyStickersPage> createState() => _MyStickersPageState();
 }

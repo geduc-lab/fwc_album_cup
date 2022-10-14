@@ -13,6 +13,8 @@ abstract class MyStickersViewImpl extends State<MyStickersPage>
   var statusFilter = 'all';
   var countries = <String, String>{};
 
+
+
   @override
   void initState() {
     widget.presenter.view = this;
@@ -45,8 +47,10 @@ abstract class MyStickersViewImpl extends State<MyStickersPage>
   }
 
   @override
-  void updatedAlbum(List<GroupsStickers> album) {
+  void updateAlbum(List<GroupsStickers> album) {
     hideLoader();
-    this.album = album;
+    setState(() {
+      this.album = album;
+    });
   }
 }
