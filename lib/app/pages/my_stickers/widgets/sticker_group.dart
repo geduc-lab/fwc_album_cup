@@ -1,10 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_cup/app/core/ui/styles/text_styles.dart';
 
 import '../../../models/groups_stickers_model.dart';
 import '../../../models/user_sticker_model.dart';
+import '../presenter/my_stickers_presenter.dart';
+import '../presenter/my_stickers_presenter.dart';
+import '../presenter/my_stickers_presenter.dart';
+import '../presenter/my_stickers_presenter.dart';
+import '../presenter/my_stickers_presenter_impl.dart';
 
 class StickerGroup extends StatelessWidget {
   final GroupsStickers group;
@@ -99,13 +105,15 @@ class Sticker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed('/sticker-detail', arguments: {
+      onTap: () async {
+        final presenter = context.get<MyStickersPresenter>();
+        await Navigator.of(context).pushNamed('/sticker-detail', arguments: {
           'countryCode': countryCode,
           'countryName': countryName,
           'stickerNumber': stickerNumber,
           'stickerUser': sticker,
         });
+        presenter.refresh();
       },
       child: Container(
         color: sticker != null ? context.colors.primary : context.colors.grey,
