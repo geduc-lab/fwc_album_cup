@@ -8,8 +8,7 @@ import '../../../core/ui/helpers/loader.dart';
 abstract class StickerDetailViewImpl extends State<StickerDetailPage>
     with Messages<StickerDetailPage>, Loader<StickerDetailPage>
     implements StickerDetailView {
-
-  bool hasSticker = true;
+  bool hasSticker = false;
   String countryCode = '';
   String countryName = '';
   String stickerNumber = '';
@@ -19,38 +18,33 @@ abstract class StickerDetailViewImpl extends State<StickerDetailPage>
   void initState() {
     widget.presenter.view = this;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      showLoader ();
+      showLoader();
       var arguments = ModalRoute.of(context)?.settings.arguments;
 
       if (arguments != null && arguments is Map<String, dynamic>) {
         var args = arguments as Map<String, dynamic>;
         widget.presenter.load(
-
           countryCode: arguments['countryCode'],
           countryName: arguments['countryName'],
           stickerNumber: arguments['stickerNumber'],
           stickerUser: arguments['stickerUser'],
-
         );
-      }
-      else {
+      } else {
         hideLoader();
         Navigator.of(context).pop();
         showError('Não foi possível carregar a figurinha');
       }
-
-
     });
     super.initState();
   }
 
   @override
   void screenLoaded({
-     required bool hasSticker,
-     required String countryCode,
-     required String countryName,
-     required String stickerNumber,
-     required int amount,
+    required bool hasSticker,
+    required String countryCode,
+    required String countryName,
+    required String stickerNumber,
+    required int amount,
   }) {
     hideLoader();
     setState(() {
@@ -60,5 +54,25 @@ abstract class StickerDetailViewImpl extends State<StickerDetailPage>
       this.stickerNumber = stickerNumber;
       this.amount = amount;
     });
+  }
+
+  @override
+  void updateAmount(int amount) {
+    setState(() {
+      hideLoader();
+      this.amount = amount;
+    });
+  }
+
+  @override
+  void saveSuccess() {
+    hideLoader();
+    Navigator.of(context).pop();
+  }
+
+  @override
+  void error(String message) {
+    hideLoader();
+    showError(message);
   }
 }

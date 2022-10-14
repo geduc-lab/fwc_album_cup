@@ -64,4 +64,32 @@ class StickersRepositoryImpl implements StickersRepository {
       throw RepositoryException(message: 'Error creating sticker');
     }
   }
+
+
+  @override
+  Future<void> registerUserSticker(int stickerId, int amount) async {
+    try {
+      await dio.auth().post('/api/user/sticker', data: {
+        'id_sticker': stickerId,
+        'amount': amount,
+      });
+    } on DioError catch (e, s) {
+      log('Error registering user sticker', error: e, stackTrace: s);
+      throw RepositoryException(message: 'Error registering user sticker');
+    }
+  }
+
+  @override
+  Future<void> updateUserSticker(int stickerId, int amount) async {
+    try {
+      await dio.auth().put('/api/user/sticker', data: {
+        'id_sticker': stickerId,
+        'amount': amount,
+      });
+    } on DioError catch (e, s) {
+      log('Error updating user sticker', error: e, stackTrace: s);
+      throw RepositoryException(message: 'Error updating user sticker');
+    }
+
+  }
 }

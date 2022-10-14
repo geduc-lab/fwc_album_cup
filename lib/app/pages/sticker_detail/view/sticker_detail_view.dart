@@ -8,4 +8,12 @@ abstract class StickerDetailView {
     required int amount,
   });
 
+  void updateAmount(int i);
+
+  void showLoader();
+
+  void saveSuccess();
+
+  void error(String s);
+
 }

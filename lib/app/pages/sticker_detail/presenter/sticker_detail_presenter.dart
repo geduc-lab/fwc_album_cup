@@ -10,4 +10,11 @@ abstract class StickerDetailPresenter extends AppPresenter<StickerDetailView> {
     required String stickerNumber,
     UserStickerModel? stickerUser,
   });
+
+  void incrementAmount();
+
+  void decrementAmount();
+
+
+  Future<void> saveSticker();
 }
